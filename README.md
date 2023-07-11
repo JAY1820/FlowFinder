@@ -13,10 +13,10 @@ Flow Finder is a web application built with React.js that helps users manage the
 
 ## Screenshots
 
-![Flow Finder Board View](path/to/board-screenshot.png)
+![Flow Finder Board View](https://github.com/JAY1820/Icon_and_gif/blob/main/flowfinder%20ss1.jpg.png)
 *Screenshot: Flow Finder Board View*
 
-![Flow Finder Task Details](path/to/task-screenshot.png)
+![Flow Finder Task Details](https://github.com/JAY1820/Icon_and_gif/blob/main/flowfinder%20ss2.jpg)
 *Screenshot: Flow Finder Task Details*
 
 ## Getting Started
