@@ -27,6 +27,7 @@ h1 {
 /* Columns container styles */
 .columns {
   display: flex;
+  gap: 20px; /* Add a gap between columns */
 }
 
 /* Media query for responsiveness */
@@ -49,10 +50,32 @@ button {
   cursor: pointer;
   background-color: #4caf50;
   color: #fff;
+  transition: background-color 0.3s ease;
+  /* Add column button styles */
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* Glassmorphism effect */
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  /* Animation effect */
+  animation: pulse 2s infinite;
 }
 
 button:hover {
   background-color: #45a049;
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Input styles */
@@ -100,6 +123,7 @@ textarea {
   width: 100%;
   margin-bottom: 10px;
 }
+
 .center-container {
   display: flex;
   flex-direction: column;
@@ -107,6 +131,7 @@ textarea {
   justify-content: center;
   height: 100%;
 }
+
 .flowfinder-title {
   font-size: 96px;
   font-weight: bold;
@@ -117,4 +142,3 @@ textarea {
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-

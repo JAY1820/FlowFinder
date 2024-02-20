@@ -3,8 +3,6 @@ import './App.css';
 import { v4 as uuidv4 } from 'uuid';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Column from './Column';
-import logo from '../src/FlowFinder logo.png';
-
 
 const App = () => {
   const [columns, setColumns] = useState([]);
@@ -28,14 +26,25 @@ const App = () => {
   }, [columns]);
 
   const addColumn = () => {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); 
+    const startDay = new Date(today);
+    startDay.setDate(today.getDate() - today.getDay() + (dayOfWeek === 0 ? -6 : 1)); // Get Monday of the current week
+  
+    const endDay = new Date(startDay);
+    endDay.setDate(startDay.getDate() + columns.length % 7); // Get the end day of the current column
+  
+    const columnTitle = `${startDay.toLocaleDateString('en-US', { weekday: 'long' })} - ${endDay.toLocaleDateString('en-US', { weekday: 'long' })}`;
+  
     const newColumn = {
       id: `column-${uuidv4()}`,
-      title: 'New Column',
+      title: columnTitle,
       cards: [],
     };
+  
     setColumns((prevColumns) => [...prevColumns, newColumn]);
   };
-
+  
   const deleteColumn = (columnId) => {
     setColumns((prevColumns) =>
       prevColumns.filter((column) => column.id !== columnId)
@@ -141,12 +150,10 @@ const App = () => {
     // Implement the logic for onDragEnd
   };
 
-
   return (
     <div className="container">
       <div className="center-container">
         <h1 className="flowfinder-title">Flow FindeR</h1>
-        {/* <img src={logo} alt="FlowFinder logo" className="logo" /> */}
       </div>
       <div className="columns-container">
         <DragDropContext onDragEnd={onDragEnd}>

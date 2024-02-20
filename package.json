@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "progress-tracker",
   "version": "0.1.0",
   "private": true,
@@ -36,9 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-=======
-  "dependencies": {
-    "react-beautiful-dnd": "^13.1.1"
->>>>>>> 2596f4dd64dc3f5d8821743a25398133e0dfc8c4
   }
 }
