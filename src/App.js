@@ -27,14 +27,14 @@ const App = () => {
 
   const addColumn = () => {
     const today = new Date();
-    const dayOfWeek = today.getDay(); 
+    const dayOfWeek = today.getDay(); // 0 (Sunday) - 6 (Saturday)
     const startDay = new Date(today);
     startDay.setDate(today.getDate() - today.getDay() + (dayOfWeek === 0 ? -6 : 1)); // Get Monday of the current week
   
-    const endDay = new Date(startDay);
-    endDay.setDate(startDay.getDate() + columns.length % 7); // Get the end day of the current column
+    const columnDay = new Date(startDay);
+    columnDay.setDate(startDay.getDate() + columns.length % 7); // Get the day of the current column
   
-    const columnTitle = `${startDay.toLocaleDateString('en-US', { weekday: 'long' })} - ${endDay.toLocaleDateString('en-US', { weekday: 'long' })}`;
+    const columnTitle = `${columnDay.toLocaleDateString('en-US', { weekday: 'long' })}`;
   
     const newColumn = {
       id: `column-${uuidv4()}`,
@@ -44,6 +44,7 @@ const App = () => {
   
     setColumns((prevColumns) => [...prevColumns, newColumn]);
   };
+  
   
   const deleteColumn = (columnId) => {
     setColumns((prevColumns) =>
